@@ -1,0 +1,13 @@
+* {
+    border: 2px solid red;
+}
+
+#containerE-A-S {
+    height: 960px;
+    width: 960px;
+}
+
+div {
+    height: 40px;
+    width: 40px;
+}
