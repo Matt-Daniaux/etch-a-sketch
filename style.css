@@ -1,13 +1,24 @@
 * {
     border: 2px solid red;
+    box-sizing: border-box;
 }
 
 #containerE-A-S {
     height: 960px;
     width: 960px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-div {
-    height: 40px;
-    width: 40px;
+.divE-A-S {
+    background: rgb(255, 255, 255);
+    flex: auto;
+    flex-shrink: 1;
+    width: 25%;
+    height: 25%;
 }
+
+.div-hover {
+    background: rgba(0, 0, 0, 0.400);
+}
+
