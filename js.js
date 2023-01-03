@@ -1,5 +1,6 @@
+let number = 16;
 
-
+//Create one div
 function addOneDiv() {
     const container = document.querySelector('#containerE-A-S')
     div = document.createElement('div')
@@ -7,19 +8,68 @@ function addOneDiv() {
     div.classList.add('divE-A-S') 
 }
 
+//Create number of div according to user request 
 function addNbOfDivs(nb) {
-    for (let i = 0; i <= nb; i++) {
+    nb = number
+    for (let i = 1; i <= (nb ** 2); i++) {
         addOneDiv();
     }
 }
 
+//Add the divs 
+addNbOfDivs()
 
 
-addNbOfDivs(15)
+let divs = document.querySelectorAll('.divE-A-S');
 
-const divs = document.querySelectorAll('.divE-A-S');
-for (let i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('mouseover', () => {
-        divs[i].classList.add('div-hover')
-    });
+function divSelectAll() {
+     return divs = document.querySelectorAll('.divE-A-S');
 }
+//Set height + width of each div 
+function addDimensionToDiv () {
+    let height = 960/number ;
+    divSelectAll()
+    for(let i = 0; i < divs.length; i++) {
+        divs[i].style.height = `${height}px`
+        divs[i].style.width =  `${height}px`
+    }
+}    
+
+//add dimension to div 
+addDimensionToDiv()
+
+//Array nb of div + value for each of them for background transparency 
+function divBackGroundColor() {
+    let backgrounds = [...document.querySelectorAll('.divE-A-S')]
+    for(let i = 0; i < backgrounds.length; i++) {
+        backgrounds[i] = 0.3;
+    }
+    divSelectAll()
+    //For each div, apply increase of transparency & add to corresponding background array value  
+    for (let i = 0; i < divs.length; i++) {
+        divs[i].addEventListener('mouseover', () => {
+            divs[i].style.background = `rgba(108, 255, 255, ${backgrounds[i]} )` 
+            backgrounds[i] += 0.3
+            })
+    }
+}
+
+divBackGroundColor()
+
+//create clickable button for nb of square
+
+//New input for number of div 
+let btn = document.querySelector('.btn');
+btn.addEventListener('click', () => {
+    number = prompt('Enter a number of scare', '16');
+})
+btn.addEventListener('click', addNbOfDivs)
+btn.addEventListener('click', addDimensionToDiv)
+btn.addEventListener('click', divBackGroundColor)
+
+
+
+
+
+
+

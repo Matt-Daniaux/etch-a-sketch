@@ -1,9 +1,24 @@
 * {
-    border: 2px solid red;
-    box-sizing: border-box;
+    border: 0px solid red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 0px;
+    padding: 50px;
+    font-size: 50px;
+
 }
 
 #containerE-A-S {
+    border: 7px solid black;
+    border-radius: 10px;
     height: 960px;
     width: 960px;
     display: flex;
@@ -11,14 +26,4 @@
 }
 
 .divE-A-S {
-    background: rgb(255, 255, 255);
-    flex: auto;
-    flex-shrink: 1;
-    width: 25%;
-    height: 25%;
 }
-
-.div-hover {
-    background: rgba(0, 0, 0, 0.400);
-}
-
