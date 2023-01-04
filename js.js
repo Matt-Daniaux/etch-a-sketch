@@ -8,35 +8,65 @@ function addOneDiv() {
     div.classList.add('divE-A-S') 
 }
 
+//Remove all divs --> before creating new grid
+function removeDivs() {
+    const container = document.querySelector('#containerE-A-S')
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild);
+      }
+}
+
 //Create number of div according to user request 
 function addNbOfDivs(nb) {
-    nb = number
-    for (let i = 1; i <= (nb ** 2); i++) {
+    nb = (number ** 2);
+    if (number > 100) {
+        alert('Number of square should be 100 or less.')
+    } else {
+    for (let i = 1; i <= nb; i++) {
         addOneDiv();
     }
 }
+}
+
+
+
 
 //Add the divs 
 addNbOfDivs()
 
 
+
+
+//Selects all nodes for E-A-S display surface
 let divs = document.querySelectorAll('.divE-A-S');
 
-function divSelectAll() {
-     return divs = document.querySelectorAll('.divE-A-S');
+//Actualize divs variable
+function divSelectAllDiv() {
+    divs = document.querySelectorAll('.divE-A-S');
 }
+
+
+
 //Set height + width of each div 
 function addDimensionToDiv () {
     let height = 960/number ;
-    divSelectAll()
+    divSelectAllDiv()
     for(let i = 0; i < divs.length; i++) {
         divs[i].style.height = `${height}px`
         divs[i].style.width =  `${height}px`
     }
 }    
 
+
+
+
 //add dimension to div 
 addDimensionToDiv()
+
+
+
+
+
 
 //Array nb of div + value for each of them for background transparency 
 function divBackGroundColor() {
@@ -44,7 +74,7 @@ function divBackGroundColor() {
     for(let i = 0; i < backgrounds.length; i++) {
         backgrounds[i] = 0.3;
     }
-    divSelectAll()
+    divSelectAllDiv()
     //For each div, apply increase of transparency & add to corresponding background array value  
     for (let i = 0; i < divs.length; i++) {
         divs[i].addEventListener('mouseover', () => {
@@ -54,15 +84,25 @@ function divBackGroundColor() {
     }
 }
 
+
+
+
+//Add background color when hover 
 divBackGroundColor()
 
-//create clickable button for nb of square
 
+
+
+
+
+//create clickable button for nb of square
 //New input for number of div 
 let btn = document.querySelector('.btn');
 btn.addEventListener('click', () => {
-    number = prompt('Enter a number of scare', '16');
+    number = prompt('How many squares in X ?', '16');
 })
+
+btn.addEventListener('click', removeDivs)
 btn.addEventListener('click', addNbOfDivs)
 btn.addEventListener('click', addDimensionToDiv)
 btn.addEventListener('click', divBackGroundColor)
