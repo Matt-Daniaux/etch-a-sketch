@@ -1,5 +1,3 @@
-let number = 16;
-
 //Create one div
 function addOneDiv() {
     const container = document.querySelector('#containerE-A-S')
@@ -28,24 +26,10 @@ function addNbOfDivs(nb) {
 }
 }
 
-
-
-
-//Add the divs 
-addNbOfDivs()
-
-
-
-
-//Selects all nodes for E-A-S display surface
-let divs = document.querySelectorAll('.divE-A-S');
-
 //Actualize divs variable
 function divSelectAllDiv() {
     divs = document.querySelectorAll('.divE-A-S');
 }
-
-
 
 //Set height + width of each div 
 function addDimensionToDiv () {
@@ -56,17 +40,6 @@ function addDimensionToDiv () {
         divs[i].style.width =  `${height}px`
     }
 }    
-
-
-
-
-//add dimension to div 
-addDimensionToDiv()
-
-
-
-
-
 
 //Array nb of div + value for each of them for background transparency 
 function divBackGroundColor() {
@@ -85,15 +58,22 @@ function divBackGroundColor() {
 }
 
 
+//Number of divs in x (& y) for E-A-S
+let number = 16;
 
+//Selects all nodes for E-A-S display surface
+let divs = document.querySelectorAll('.divE-A-S');
+
+
+
+//Add the divs 
+addNbOfDivs()
+
+//add dimension to div 
+addDimensionToDiv()
 
 //Add background color when hover 
 divBackGroundColor()
-
-
-
-
-
 
 //create clickable button for nb of square
 //New input for number of div 
@@ -101,7 +81,6 @@ let btn = document.querySelector('.btn');
 btn.addEventListener('click', () => {
     number = prompt('How many squares in X ?', '16');
 })
-
 btn.addEventListener('click', removeDivs)
 btn.addEventListener('click', addNbOfDivs)
 btn.addEventListener('click', addDimensionToDiv)
